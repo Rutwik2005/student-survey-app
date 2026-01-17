@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-survey-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: student-survey
+  template:
+    metadata:
+      labels:
+        app: student-survey
+    spec:
+      containers:
+        - name: student-survey
+          image: rutwikdev/student-survey:v1
+          ports:
+            - containerPort: 80
