@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone Repo') {
-            steps {
-                git branch: 'main', url: 'https://github.com/Rutwik2005/student-survey-app.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 sh 'docker build -t rutwikdev/student-survey:v1 .'
